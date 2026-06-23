@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#183654"/>
+      <stop offset="0.42" stop-color="#111d2b"/>
+      <stop offset="1" stop-color="#101315"/>
+    </linearGradient>
+    <linearGradient id="surface" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#30363a"/>
+      <stop offset="0.45" stop-color="#171b1f"/>
+      <stop offset="1" stop-color="#081b31"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#7db9ff"/>
+      <stop offset="1" stop-color="#075ca8"/>
+    </linearGradient>
+    <pattern id="granules" width="58" height="58" patternUnits="userSpaceOnUse">
+      <rect width="58" height="58" fill="transparent"/>
+      <circle cx="8" cy="11" r="2.2" fill="#405057" opacity="0.9"/>
+      <circle cx="22" cy="19" r="1.7" fill="#075ca8" opacity="0.74"/>
+      <circle cx="41" cy="10" r="2.3" fill="#6aa7e8" opacity="0.68"/>
+      <circle cx="51" cy="34" r="1.8" fill="#2f7dca" opacity="0.62"/>
+      <circle cx="15" cy="45" r="2.1" fill="#667278" opacity="0.72"/>
+      <circle cx="35" cy="42" r="1.5" fill="#111417" opacity="0.9"/>
+    </pattern>
+    <filter id="texture" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.86" numOctaves="2" seed="12"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.16"/>
+      </feComponentTransfer>
+    </filter>
+    <radialGradient id="vignette" cx="0.46" cy="0.4" r="0.78">
+      <stop stop-color="#000" stop-opacity="0"/>
+      <stop offset="0.66" stop-color="#000" stop-opacity="0.1"/>
+      <stop offset="1" stop-color="#000" stop-opacity="0.55"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+  <path d="M0 330c220-60 420-72 626-18 174 45 312 41 477-8 216-64 374-38 497 13v683H0V330Z" fill="#263035"/>
+  <path d="M1014 295c176-36 360-20 586 64v176c-178-65-340-84-513-37-136 37-225 27-292-2-71-31-112-79-136-124 108 4 220-49 355-77Z" fill="#d9d0c2" opacity="0.9"/>
+  <path d="M1057 348c146-24 306-3 472 54v78c-143-42-286-55-423-19-135 35-247 9-308-42 66 0 150-53 259-71Z" fill="url(#water)"/>
+  <path d="M0 448c208-85 410-93 606-16 242 96 435 103 712 20 104-31 198-41 282-36v584H0V448Z" fill="url(#surface)"/>
+  <path d="M0 448c208-85 410-93 606-16 242 96 435 103 712 20 104-31 198-41 282-36v584H0V448Z" fill="url(#granules)" opacity="0.95"/>
+  <path d="M-48 780C224 655 488 648 744 759c238 104 532 94 914-70" fill="none" stroke="#6aa7e8" stroke-width="38" stroke-linecap="round" opacity="0.72"/>
+  <path d="M-38 822C238 704 500 704 743 805c253 105 558 92 930-63" fill="none" stroke="#075ca8" stroke-width="16" stroke-linecap="round" opacity="0.9"/>
+  <rect width="1600" height="1000" filter="url(#texture)" opacity="0.72"/>
+  <rect width="1600" height="1000" fill="url(#vignette)"/>
+</svg>

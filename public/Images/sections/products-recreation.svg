@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#eaf2f9"/>
+      <stop offset="0.66" stop-color="#829bb4"/>
+      <stop offset="1" stop-color="#162433"/>
+    </linearGradient>
+    <linearGradient id="rubber" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#34404a"/>
+      <stop offset="0.55" stop-color="#121920"/>
+      <stop offset="1" stop-color="#061529"/>
+    </linearGradient>
+    <pattern id="flecks" width="48" height="48" patternUnits="userSpaceOnUse">
+      <circle cx="8" cy="10" r="1.8" fill="#6aa7e8" opacity="0.7"/>
+      <circle cx="25" cy="20" r="1.4" fill="#075ca8" opacity="0.88"/>
+      <circle cx="39" cy="38" r="1.6" fill="#d9ecff" opacity="0.42"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+  <path d="M0 364 166 240l130 69 152-120 184 122 124-86 194 129 155-90 190 108 135-72 170 111v589H0Z" fill="#1c2834"/>
+  <path d="M0 390 166 266l130 69 152-120 184 122 124-86 194 129 155-90 190 108 135-72 170 111v563H0Z" fill="#f8fbff" opacity="0.6"/>
+  <path d="M0 540c172-64 340-65 504-4 215 79 400 69 616 0 176-57 336-64 480-23v487H0Z" fill="#d5d9dc"/>
+  <path d="M0 618c275-74 520-64 735 31 254 112 520 111 865-13v364H0Z" fill="url(#rubber)"/>
+  <path d="M0 618c275-74 520-64 735 31 254 112 520 111 865-13v364H0Z" fill="url(#flecks)" opacity="0.94"/>
+  <path d="M128 680c170-54 330-40 480 41" fill="none" stroke="#075ca8" stroke-width="60" stroke-linecap="round" opacity="0.82"/>
+  <path d="M825 722c210 73 445 63 736-51" fill="none" stroke="#6aa7e8" stroke-width="45" stroke-linecap="round" opacity="0.72"/>
+  <circle cx="350" cy="528" r="68" fill="#075ca8" opacity="0.85"/>
+  <path d="M760 490h310v62H760Z" fill="#f8fbff" opacity="0.78"/>
+  <path d="M870 430h90v210h-90Z" fill="#075ca8" opacity="0.86"/>
+  <path d="M1140 502c0-73 55-143 120-186 70 49 119 112 119 186h-239Z" fill="#0a1117" opacity="0.82"/>
+</svg>

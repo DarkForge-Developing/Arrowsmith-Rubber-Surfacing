@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#dce8f3"/>
+      <stop offset="0.46" stop-color="#9db7cf"/>
+      <stop offset="1" stop-color="#1a2a3c"/>
+    </linearGradient>
+    <linearGradient id="rubber" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#2a333c"/>
+      <stop offset="0.55" stop-color="#10161c"/>
+      <stop offset="1" stop-color="#071729"/>
+    </linearGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#7db9ff"/>
+      <stop offset="1" stop-color="#075ca8"/>
+    </linearGradient>
+    <pattern id="flecks" width="54" height="54" patternUnits="userSpaceOnUse">
+      <circle cx="7" cy="11" r="1.7" fill="#6aa7e8" opacity="0.8"/>
+      <circle cx="19" cy="34" r="1.3" fill="#075ca8" opacity="0.9"/>
+      <circle cx="32" cy="17" r="1.9" fill="#edf5ff" opacity="0.38"/>
+      <circle cx="47" cy="42" r="1.4" fill="#2f7dca" opacity="0.78"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+  <path d="M0 360 215 196l148 88 180-152 225 188 156-110 208 159 140-82 328 138v575H0Z" fill="#202a34"/>
+  <path d="M0 390 215 226l148 88 180-152 225 188 156-110 208 159 140-82 328 138v545H0Z" fill="#f8fbff" opacity="0.62"/>
+  <path d="M0 492c172-54 330-63 474-26 176 45 319 42 508-20 213-69 427-54 618 44v510H0Z" fill="#e5e8e6"/>
+  <path d="M915 430c186-39 370-4 553 77v137c-178-66-350-87-519-31-147 49-281 27-377-42 92-8 197-105 343-141Z" fill="url(#water)" opacity="0.95"/>
+  <path d="M0 520c222-84 445-91 668-20 286 91 541 80 932-42v542H0Z" fill="url(#rubber)"/>
+  <path d="M0 520c222-84 445-91 668-20 286 91 541 80 932-42v542H0Z" fill="url(#flecks)" opacity="0.9"/>
+  <path d="M-80 793C220 635 489 623 735 742c250 121 543 113 936-70" fill="none" stroke="#6aa7e8" stroke-width="42" stroke-linecap="round" opacity="0.72"/>
+  <path d="M-80 846C226 709 497 713 741 809c251 99 553 87 935-70" fill="none" stroke="#075ca8" stroke-width="17" stroke-linecap="round" opacity="0.9"/>
+  <path d="M72 514c0-58 45-124 104-168 61 48 104 110 104 168H72Z" fill="#0b1219" opacity="0.86"/>
+  <path d="M213 512c0-45 34-94 76-128 46 37 76 82 76 128H213Z" fill="#0b1219" opacity="0.8"/>
+</svg>

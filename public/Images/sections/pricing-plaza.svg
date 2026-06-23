@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#e9f3fb"/>
+      <stop offset="0.6" stop-color="#8fa8bf"/>
+      <stop offset="1" stop-color="#172536"/>
+    </linearGradient>
+    <linearGradient id="surface" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#313b45"/>
+      <stop offset="0.58" stop-color="#111820"/>
+      <stop offset="1" stop-color="#061528"/>
+    </linearGradient>
+    <pattern id="flecks" width="52" height="52" patternUnits="userSpaceOnUse">
+      <circle cx="8" cy="13" r="1.6" fill="#6aa7e8" opacity="0.78"/>
+      <circle cx="23" cy="36" r="1.2" fill="#075ca8" opacity="0.92"/>
+      <circle cx="42" cy="17" r="1.5" fill="#e8f4ff" opacity="0.36"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+  <path d="M0 368 172 240l132 83 170-140 198 150 153-93 198 126 124-71 211 105 242-87v687H0Z" fill="#1a2734"/>
+  <path d="M0 396 172 268l132 83 170-140 198 150 153-93 198 126 124-71 211 105 242-87v659H0Z" fill="#f8fbff" opacity="0.58"/>
+  <path d="M980 300h484v300H980Z" fill="#eef3f7" opacity="0.92"/>
+  <path d="M1030 348h92v210h-92Zm138 0h92v210h-92Zm138 0h92v210h-92Z" fill="#2b4054" opacity="0.86"/>
+  <path d="M0 596c260-64 505-50 734 42 266 107 552 98 866-31v393H0Z" fill="url(#surface)"/>
+  <path d="M0 596c260-64 505-50 734 42 266 107 552 98 866-31v393H0Z" fill="url(#flecks)" opacity="0.94"/>
+  <path d="M100 770c244-96 470-82 678 24 244 124 516 111 842-41" fill="none" stroke="#6aa7e8" stroke-width="38" stroke-linecap="round" opacity="0.66"/>
+  <path d="M110 825c245-76 468-57 670 36 250 115 526 93 840-54" fill="none" stroke="#075ca8" stroke-width="15" stroke-linecap="round" opacity="0.88"/>
+  <path d="M0 606h1600" stroke="#f8fbff" stroke-width="10" opacity="0.44"/>
+</svg>

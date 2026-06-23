@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="base" cx="35%" cy="28%" r="90%">
+      <stop stop-color="#26384a"/>
+      <stop offset="0.55" stop-color="#161a1d"/>
+      <stop offset="1" stop-color="#081b31"/>
+    </radialGradient>
+    <pattern id="dots" width="46" height="46" patternUnits="userSpaceOnUse">
+      <rect width="46" height="46" fill="transparent"/>
+      <circle cx="7" cy="8" r="3" fill="#6a767b" opacity="0.7"/>
+      <circle cx="23" cy="14" r="2.6" fill="#101214"/>
+      <circle cx="37" cy="9" r="2.3" fill="#075ca8" opacity="0.78"/>
+      <circle cx="13" cy="31" r="2.7" fill="#6aa7e8" opacity="0.72"/>
+      <circle cx="32" cy="34" r="2.2" fill="#2f7dca" opacity="0.7"/>
+    </pattern>
+    <linearGradient id="stripe" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#6aa7e8"/>
+      <stop offset="1" stop-color="#075ca8"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="900" fill="url(#base)"/>
+  <rect width="900" height="900" fill="url(#dots)"/>
+  <path d="M-80 690C142 542 339 529 512 652c137 97 294 111 468 28" fill="none" stroke="url(#stripe)" stroke-width="64" stroke-linecap="round" opacity="0.82"/>
+  <path d="M-70 743C150 618 351 608 522 710c151 90 309 96 463 24" fill="none" stroke="#f8fbff" stroke-width="11" stroke-linecap="round" opacity="0.48"/>
+</svg>
