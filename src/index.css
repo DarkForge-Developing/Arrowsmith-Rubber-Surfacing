@@ -8,11 +8,12 @@ html,
 body,
 #root {
   width: 100%;
-  min-height: 100%;
+  min-height: 100vh;
   overflow-x: hidden;
-  background: #0f141a;
+  background: #09131b;
 }
 
 body {
   font-family: Arial, sans-serif;
+  min-width: 320px;
 }

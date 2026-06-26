@@ -3,14 +3,15 @@ import { supabase } from "./supabase"
 
 const COMPANY_NAME = "Arrowsmith Rubber Surfacing"
 const theme = {
-  page: "#0f141a",
-  panel: "#121921",
-  panelSoft: "#1b2633",
-  text: "#f8fbff",
-  muted: "#c8d4df",
-  border: "#285f99",
-  accent: "#075ca8",
-  teal: "#6aa7e8",
+  page: "#09131b",
+  panel: "#0d1820",
+  panelSoft: "#142633",
+  text: "#fffbe8",
+  muted: "#d7ded8",
+  border: "#b65c3e",
+  accent: "#f26132",
+  accentDark: "#c9432e",
+  teal: "#65bdd4",
 }
 
 export default function Admin() {
@@ -314,7 +315,7 @@ export default function Admin() {
               border: isDragging
                 ? `2px solid ${theme.teal}`
                 : `2px dashed ${theme.border}`,
-              background: isDragging ? "rgba(106,167,232,0.14)" : theme.panelSoft,
+              background: isDragging ? "rgba(101,189,212,0.14)" : theme.panelSoft,
               borderRadius: "8px",
               minHeight: "220px",
               display: "flex",
@@ -370,7 +371,7 @@ export default function Admin() {
             style={{
               width: "100%",
               padding: "15px",
-              background: uploading ? "#003f73" : theme.accent,
+              background: uploading ? theme.accentDark : theme.accent,
               border: "none",
               borderRadius: "8px",
               fontWeight: "bold",

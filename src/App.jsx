@@ -3,7 +3,8 @@ import { supabase } from "./supabase"
 
 const COMPANY_NAME = "Arrowsmith Rubber Surfacing"
 const PRICING_URL = "https://www.rubaroc.com/"
-const LOGO_IMAGE = "/logo/arrowsmithlogo-rubber.png?v=arrowsmith-rubber-surfacing"
+const FORM_SUBMIT_URL = "https://formsubmit.co/Arrowsmithrubber@gmail.com"
+const LOGO_IMAGE = "/logo/arrowsmith-rubber-surfacing-pdf.png?v=orange-aqua-tight"
 const HERO_IMAGE = "/Images/sections/premium-rubber-surfacing.png"
 const SERVICE_IMAGE = "/Images/sections/our-service-entrance.png"
 const PRODUCTS_IMAGE = "/Images/sections/products-recreation.png"
@@ -12,19 +13,19 @@ const PRICING_IMAGE = "/Images/sections/pricing-plaza.png"
 const DETAIL_IMAGE = ASSISTANT_IMAGE
 
 const theme = {
-  page: "#0f141a",
-  panel: "rgba(18, 25, 33, 0.94)",
-  panelStrong: "rgba(8, 16, 27, 0.97)",
-  nav: "rgba(8, 16, 27, 0.96)",
-  text: "#f8fbff",
-  muted: "#c8d4df",
-  dim: "#7d8b99",
-  border: "rgba(24, 99, 173, 0.34)",
-  accent: "#075ca8",
-  accentDark: "#003f73",
-  teal: "#2f7dca",
-  tealDark: "#073e72",
-  amber: "#6aa7e8",
+  page: "#09131b",
+  panel: "rgba(13, 24, 32, 0.94)",
+  panelStrong: "rgba(6, 15, 23, 0.97)",
+  nav: "rgba(7, 16, 24, 0.96)",
+  text: "#fffbe8",
+  muted: "#d7ded8",
+  dim: "#93a0a2",
+  border: "rgba(255, 103, 54, 0.36)",
+  accent: "#f26132",
+  accentDark: "#c9432e",
+  teal: "#65bdd4",
+  tealDark: "#2a7e92",
+  amber: "#ff8f2f",
 }
 
 const services = [
@@ -69,16 +70,34 @@ const products = [
 ]
 
 const builtInGalleryImages = [
-  { name: "Pool deck rubber surfacing", url: HERO_IMAGE },
-  { name: "Entrance rubber surfacing", url: SERVICE_IMAGE },
-  { name: "Play and athletic rubber surfacing", url: PRODUCTS_IMAGE },
-  { name: "Rubber granule texture", url: ASSISTANT_IMAGE },
-  { name: "Commercial plaza rubber surfacing", url: PRICING_IMAGE },
-  { name: "Special project rubber surfacing", url: HERO_IMAGE },
+  {
+    name: "Brown driveway rubber surfacing",
+    url: "/Images/gallery/driveway-brown-rubber-surfacing.png",
+  },
+  {
+    name: "Grey driveway rubber surfacing",
+    url: "/Images/gallery/driveway-grey-rubber-surfacing.png",
+  },
+  {
+    name: "Garage apron rubber surfacing",
+    url: "/Images/gallery/garage-rubber-surfacing.png",
+  },
+  {
+    name: "Modern driveway rubber surfacing",
+    url: "/Images/gallery/modern-driveway-rubber-surfacing.png",
+  },
+  {
+    name: "Pool deck rubber surfacing",
+    url: "/Images/gallery/pool-deck-rubber-surfacing.png",
+  },
+  {
+    name: "Pathway rubber surfacing",
+    url: "/Images/gallery/pathway-rubber-surfacing.png",
+  },
 ]
 
 const sectionBackground = (image = DETAIL_IMAGE, opacity = 0.82) =>
-  `linear-gradient(135deg, rgba(8,16,27,${opacity}), rgba(17,27,38,${opacity})), url('${image}')`
+  `linear-gradient(135deg, rgba(7,16,24,${opacity}), rgba(16,28,36,${opacity})), url('${image}')`
 
 const cardStyle = {
   background: theme.panel,
@@ -96,7 +115,7 @@ const primaryButtonStyle = {
   color: "white",
   cursor: "pointer",
   fontWeight: "bold",
-  boxShadow: "0 14px 34px rgba(7,92,168,0.3)",
+  boxShadow: "0 14px 34px rgba(242,97,50,0.3)",
 }
 
 export default function App() {
@@ -171,11 +190,11 @@ export default function App() {
             src={LOGO_IMAGE}
             alt={`${COMPANY_NAME} logo`}
             style={{
-              height: "92px",
-              width: "92px",
+              height: "100px",
+              width: "100px",
               objectFit: "contain",
               background: "white",
-              padding: "6px",
+              padding: "2px",
               borderRadius: "10px",
               boxShadow: "0 14px 32px rgba(0,0,0,0.34)",
             }}
@@ -236,7 +255,7 @@ export default function App() {
         style={{
           minHeight: "88vh",
           backgroundImage:
-            `linear-gradient(110deg, rgba(5,12,22,0.86), rgba(5,12,22,0.42), rgba(4,30,58,0.74)), url('${HERO_IMAGE}')`,
+            `linear-gradient(110deg, rgba(5,12,18,0.88), rgba(5,12,18,0.42), rgba(92,35,24,0.78)), url('${HERO_IMAGE}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -325,7 +344,7 @@ export default function App() {
               style={{
                 padding: "18px 35px",
                 fontSize: "18px",
-                background: "rgba(248,251,255,0.08)",
+                background: "rgba(255,251,232,0.08)",
                 border: `2px solid ${theme.teal}`,
                 borderRadius: "8px",
                 color: theme.text,
@@ -636,7 +655,7 @@ export default function App() {
         id="contact"
         style={{
           padding: "100px 50px",
-          background: `linear-gradient(135deg, #061a30, #121923 58%, #07111d)`,
+          background: `linear-gradient(135deg, #0a2530, #101820 58%, #2a1712)`,
         }}
       >
         <div style={{ textAlign: "center", marginBottom: "60px" }}>
@@ -650,7 +669,7 @@ export default function App() {
         </div>
 
         <form
-          action="https://formsubmit.co/Arrowsmithturf@gmail.com"
+          action={FORM_SUBMIT_URL}
           method="POST"
           style={{
             display: "flex",
@@ -667,6 +686,8 @@ export default function App() {
             name="_subject"
             value={`${COMPANY_NAME} Quote Request`}
           />
+          <input type="hidden" name="_template" value="table" />
+          <input type="text" name="_honey" style={{ display: "none" }} />
 
           {[
             ["text", "name", "Name"],
@@ -683,8 +704,8 @@ export default function App() {
                 padding: "18px",
                 borderRadius: "8px",
                 border: `1px solid ${theme.border}`,
-                background: "#f8fbff",
-                color: "#15191c",
+                background: "#fffbe8",
+                color: "#101820",
                 fontSize: "16px",
               }}
             />
@@ -698,8 +719,8 @@ export default function App() {
               padding: "18px",
               borderRadius: "8px",
               border: `1px solid ${theme.border}`,
-              background: "#f8fbff",
-              color: "#15191c",
+              background: "#fffbe8",
+              color: "#101820",
               minHeight: "180px",
               fontSize: "16px",
             }}
@@ -714,7 +735,7 @@ export default function App() {
       <footer
         style={{
           padding: "80px 20px 46px",
-          background: "#0c0f11",
+          background: "#071018",
           textAlign: "center",
           borderTop: `1px solid ${theme.border}`,
           position: "relative",
@@ -771,7 +792,7 @@ export default function App() {
             position: "absolute",
             left: "14px",
             bottom: "10px",
-            color: "#6e7474",
+            color: "#768385",
             fontSize: "10px",
             lineHeight: 1,
             textDecoration: "none",
