@@ -9,6 +9,7 @@ const HERO_IMAGE = "/Images/sections/premium-rubber-surfacing.png"
 const SERVICE_IMAGE = "/Images/sections/our-service-entrance.png"
 const PRODUCTS_IMAGE = "/Images/sections/products-recreation.png"
 const ASSISTANT_IMAGE = "/Images/sections/customer-assistant-detail.png"
+const ASSISTANT_CHAT_ICON = "/Images/assistant-chat-icon.png?v=orange-bot-transparent"
 const PRICING_IMAGE = "/Images/sections/pricing-plaza.png"
 const DETAIL_IMAGE = ASSISTANT_IMAGE
 
@@ -96,6 +97,14 @@ const builtInGalleryImages = [
   },
 ]
 
+const initialChatMessages = [
+  {
+    role: "assistant",
+    content:
+      "Hi! Ask me about rubber surfacing options, project planning, or getting a quote.",
+  },
+]
+
 const sectionBackground = (image = DETAIL_IMAGE, opacity = 0.82) =>
   `linear-gradient(135deg, rgba(7,16,24,${opacity}), rgba(16,28,36,${opacity})), url('${image}')`
 
@@ -120,6 +129,10 @@ const primaryButtonStyle = {
 
 export default function App() {
   const [galleryImages, setGalleryImages] = useState([])
+  const [isChatOpen, setIsChatOpen] = useState(false)
+  const [chatInput, setChatInput] = useState("")
+  const [chatMessages, setChatMessages] = useState(initialChatMessages)
+  const [isChatSending, setIsChatSending] = useState(false)
   const displayGalleryImages = [...builtInGalleryImages, ...galleryImages]
 
   const fetchImages = useCallback(async () => {
@@ -152,6 +165,64 @@ export default function App() {
   useEffect(() => {
     fetchImages()
   }, [fetchImages])
+
+  async function handleChatSubmit(event) {
+    event.preventDefault()
+
+    const content = chatInput.trim()
+
+    if (!content || isChatSending) return
+
+    const nextMessages = [
+      ...chatMessages,
+      {
+        role: "user",
+        content,
+      },
+    ]
+
+    setChatMessages(nextMessages)
+    setChatInput("")
+    setIsChatSending(true)
+
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          messages: nextMessages,
+        }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data?.error || "The assistant could not respond.")
+      }
+
+      setChatMessages([
+        ...nextMessages,
+        {
+          role: "assistant",
+          content: data.reply,
+        },
+      ])
+    } catch (error) {
+      console.log(error)
+      setChatMessages([
+        ...nextMessages,
+        {
+          role: "assistant",
+          content:
+            "I could not connect to the assistant right now. Please call or text (250) 607-7411, or send a quote request through the contact form.",
+        },
+      ])
+    } finally {
+      setIsChatSending(false)
+    }
+  }
 
   return (
     <div
@@ -801,6 +872,193 @@ export default function App() {
           Admin login
         </a>
       </footer>
+
+      <div
+        style={{
+          position: "fixed",
+          right: "18px",
+          bottom: "18px",
+          zIndex: 2000,
+          fontFamily: "Arial, sans-serif",
+        }}
+      >
+        {isChatOpen && (
+          <div
+            style={{
+              width: "min(360px, calc(100vw - 36px))",
+              height: "min(520px, calc(100vh - 36px))",
+              background: theme.panelStrong,
+              border: `1px solid ${theme.border}`,
+              borderRadius: "8px",
+              boxShadow: "0 24px 60px rgba(0,0,0,0.48)",
+              overflow: "hidden",
+              display: "flex",
+              flexDirection: "column",
+              marginBottom: "12px",
+            }}
+          >
+            <div
+              style={{
+                padding: "16px",
+                background: `linear-gradient(135deg, ${theme.accent}, ${theme.accentDark})`,
+                color: "white",
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                gap: "12px",
+              }}
+            >
+              <strong>Arrowsmith Assistant</strong>
+              <button
+                type="button"
+                onClick={() => setIsChatOpen(false)}
+                aria-label="Close assistant"
+                style={{
+                  width: "32px",
+                  height: "32px",
+                  borderRadius: "50%",
+                  border: "1px solid rgba(255,255,255,0.4)",
+                  background: "rgba(255,255,255,0.14)",
+                  color: "white",
+                  cursor: "pointer",
+                  fontSize: "20px",
+                  lineHeight: 1,
+                }}
+              >
+                x
+              </button>
+            </div>
+
+            <div
+              style={{
+                flex: 1,
+                padding: "16px",
+                overflowY: "auto",
+                display: "flex",
+                flexDirection: "column",
+                gap: "12px",
+              }}
+            >
+              {chatMessages.map((message, index) => {
+                const isUser = message.role === "user"
+
+                return (
+                  <div
+                    key={`${message.role}-${index}`}
+                    style={{
+                      alignSelf: isUser ? "flex-end" : "flex-start",
+                      maxWidth: "86%",
+                      padding: "12px 14px",
+                      borderRadius: "8px",
+                      background: isUser ? theme.accent : "rgba(255,251,232,0.1)",
+                      color: isUser ? "white" : theme.text,
+                      border: isUser ? "none" : `1px solid ${theme.border}`,
+                      lineHeight: "1.45",
+                      fontSize: "14px",
+                      whiteSpace: "pre-wrap",
+                    }}
+                  >
+                    {message.content}
+                  </div>
+                )
+              })}
+
+              {isChatSending && (
+                <div
+                  style={{
+                    alignSelf: "flex-start",
+                    color: theme.muted,
+                    fontSize: "14px",
+                  }}
+                >
+                  Typing...
+                </div>
+              )}
+            </div>
+
+            <form
+              onSubmit={handleChatSubmit}
+              style={{
+                display: "flex",
+                gap: "8px",
+                padding: "12px",
+                borderTop: `1px solid ${theme.border}`,
+                background: "rgba(7,16,24,0.96)",
+              }}
+            >
+              <input
+                value={chatInput}
+                onChange={(event) => setChatInput(event.target.value)}
+                placeholder="Ask a question"
+                aria-label="Ask the assistant a question"
+                style={{
+                  flex: 1,
+                  minWidth: 0,
+                  padding: "12px",
+                  borderRadius: "8px",
+                  border: `1px solid ${theme.border}`,
+                  background: "#fffbe8",
+                  color: "#101820",
+                  fontSize: "14px",
+                }}
+              />
+              <button
+                type="submit"
+                disabled={isChatSending || !chatInput.trim()}
+                style={{
+                  padding: "0 16px",
+                  borderRadius: "8px",
+                  border: "none",
+                  background:
+                    isChatSending || !chatInput.trim()
+                      ? "rgba(147,160,162,0.45)"
+                      : theme.teal,
+                  color: "#071018",
+                  fontWeight: "bold",
+                  cursor:
+                    isChatSending || !chatInput.trim() ? "not-allowed" : "pointer",
+                }}
+              >
+                Send
+              </button>
+            </form>
+          </div>
+        )}
+
+        <button
+          type="button"
+          onClick={() => setIsChatOpen((current) => !current)}
+          aria-label="Open assistant"
+          style={{
+            width: "76px",
+            height: "76px",
+            borderRadius: "50%",
+            border: "none",
+            background: "transparent",
+            boxShadow: "0 18px 38px rgba(0,0,0,0.42)",
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            position: "relative",
+            overflow: "hidden",
+            padding: 0,
+          }}
+        >
+          <img
+            src={ASSISTANT_CHAT_ICON}
+            alt=""
+            aria-hidden="true"
+            style={{
+              width: "100%",
+              height: "100%",
+              display: "block",
+              objectFit: "contain",
+              borderRadius: "50%",
+            }}
+          />
+        </button>
+      </div>
     </div>
   )
 }
