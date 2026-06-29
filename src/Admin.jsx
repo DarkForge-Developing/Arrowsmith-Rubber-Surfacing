@@ -1,17 +1,17 @@
 import { useCallback, useEffect, useState } from "react"
 import { supabase } from "./supabase"
 
-const COMPANY_NAME = "Arrowsmith Rubber Surfacing"
+const COMPANY_NAME = "Oma Carpentry & Handyman Services"
 const theme = {
-  page: "#09131b",
-  panel: "#0d1820",
-  panelSoft: "#142633",
-  text: "#fffbe8",
-  muted: "#d7ded8",
-  border: "#b65c3e",
-  accent: "#f26132",
-  accentDark: "#c9432e",
-  teal: "#65bdd4",
+  page: "#071211",
+  panel: "#0b211f",
+  panelSoft: "#12302d",
+  text: "#f8f1df",
+  muted: "#d9cfb8",
+  border: "#8f5b2d",
+  accent: "#f0b833",
+  accentDark: "#b77c20",
+  teal: "#c88a46",
 }
 
 export default function Admin() {
@@ -332,8 +332,7 @@ export default function Admin() {
               Drag and drop photos here
             </strong>
             <span style={{ color: theme.muted, lineHeight: "1.6" }}>
-              Gallery images display in the old website format: 440 x 440
-              square cards.
+              Gallery images display as responsive square project photos.
             </span>
           </div>
 

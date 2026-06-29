@@ -1,6 +1,6 @@
-# Arrowsmith Rubber Surfacing
+# Oma Carpentry & Handyman Services
 
-React and Vite website for Arrowsmith Rubber Surfacing.
+React and Vite website for Oma Carpentry & Handyman Services.
 
 ## Scripts
 
